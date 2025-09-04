@@ -1,0 +1,127 @@
+Branches allow you to work on new features without touching main code.
+
+Commands to learn:
+
+git branch                   # List branches
+git branch <branch_name>     # Create new branch
+git checkout <branch_name>   # Switch to branch
+git checkout -b <branch_name> # Create + switch branch
+git merge <branch_name>      # Merge branch into current branch
+git branch -d <branch_name>  # Delete branch (after merge)
+
+
+Example workflow:
+
+git checkout -b feature/login
+# make changes
+git add .
+git commit -m "Added login feature"
+git push -u origin feature/login
+# Open Pull Request on GitHub
+
+
+
+Branching & Merging in Git:
+
+Branching allows you to work on multiple versions of a project simultaneously without affecting the main code (main branch). Merging is how you combine branches after work is done.
+1. Understanding Branches
+Main branch (main): Stable production-ready code.
+Feature branch: New features or experiments.
+Hotfix branch: Quick fixes for bugs in production.
+Release branch: Prepare for a release.
+
+
+Real-time Example Scenario
+Suppose you are working on a website project:
+main → live website code
+feature/login → new login feature
+feature/payment → payment gateway
+hotfix/header-bug → urgent header issue
+
+
+2. Branching Commands
+Create a new branch
+git branch feature/login
+
+
+Switch to the branch
+git checkout feature/login
+
+
+Or combine both:
+git checkout -b feature/login
+
+
+Check existing branches
+git branch
+
+
+* shows your current branch.
+Real-time Example
+Current branch: main
+You want to add a login feature without touching main.
+git checkout -b feature/login
+
+
+Now you are on feature/login branch.
+Make your changes (edit files, add login form, etc.).
+git add .
+git commit -m "Added login feature"
+git push -u origin feature/login
+
+
+Your login work is safely on feature/login.
+
+3. Merging Branches
+Once the feature is complete, you merge it into main:
+Switch to main
+git checkout main
+Merge the feature branch
+git merge feature/login
+Git tries to auto-merge changes.
+If there are conflicts, Git will ask you to resolve them manually.
+
+Push merged code
+git push origin main
+Real-time Example
+Two developers work on the project:
+Dev1: feature/login
+Dev2: feature/payment
+Both branches are merged into main after review.
+
+main now has all features without affecting each other during development.
+4. Deleting Branches After Merge
+
+Once merged, feature branches are usually deleted:
+git branch -d feature/login   # Local delete
+git push origin --delete feature/login  # Remote delete
+
+5. Handling Merge Conflicts
+
+Conflict occurs when two branches modify the same line in a file.
+
+Git will mark the conflict in the file:
+Current main branch code
+
+Manually edit → choose which code to keep → save file
+Then:
+
+git add <file>
+git commit -m "Resolved merge conflict"
+git push origin main
+
+6. Best Practices for Branching & Merging
+
+Always branch from the latest main (git pull origin main).
+Use feature branches for every new task.
+Merge only after code review.
+Keep branch names descriptive: feature/login, hotfix/header-bug.
+
+Delete branches after merging to keep repo clean.
+
+🔹 Recap with Real-time Flow
+main → stable code
+      |
+      ├── feature/login → develop login → merge → main
+      ├── feature/payment → develop payment → merge → main
+      └── hotfix/header-bug → fix urgent bug → merge → main
