@@ -1,5 +1,5 @@
 
-# Arun Vangala Guide: World Wide Coder
+# Arun Vangala – Full Stack Engineer
 
 # Learn Git & GitHub
 
