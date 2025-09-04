@@ -1,1 +1,85 @@
-These is the new learning pull works end to end funcitonality
+Scenario: Two Developers, Two Branches
+
+Repo: learn-git-github
+
+Branches:
+
+main (default branch)
+
+feature/login (new feature branch)
+
+You and your teammate are working at the same time.
+
+🔹 Step 1: Setup
+
+You clone the repo:
+
+git clone https://github.com/username/learn-git-github.git
+cd learn-git-github
+
+
+Create and switch to a branch:
+
+git checkout -b feature/login
+
+🔹 Step 2: Teammate Updates main on GitHub
+
+Your teammate edits index.html in the main branch and pushes it:
+
+git checkout main
+echo "<h2>Welcome Page Updated by teammate</h2>" >> index.html
+git add index.html
+git commit -m "Updated index.html with new welcome message"
+git push origin main
+
+
+Now GitHub’s main branch is ahead of your local copy.
+
+🔹 Step 3: You Are Working on feature/login
+
+You add a login.html file:
+
+git checkout feature/login
+echo "<h1>Login Page</h1>" > login.html
+git add login.html
+git commit -m "Added login page"
+
+
+But your local main is behind GitHub’s main.
+
+🔹 Step 4: Run git pull origin main
+
+While on feature/login, run:
+
+git pull origin main
+
+✅ What happens:
+
+Git fetches latest changes from GitHub’s main.
+
+It merges them into your current branch (feature/login).
+
+So now:
+
+Your feature/login branch has both login.html and updated index.html.
+
+🔹 Step 5: Merge Back to main
+
+Once you’re ready:
+
+git checkout main
+git merge feature/login
+git push origin main
+
+
+Now main has both:
+
+Teammate’s updated index.html
+
+Your new login.html
+
+🔹 Key Takeaway
+
+git pull origin main → keeps your current branch up to date with the latest from GitHub’s main.
+
+This avoids merge conflicts later when you merge your feature branch back into main.
