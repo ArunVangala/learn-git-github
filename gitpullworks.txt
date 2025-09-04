@@ -1,0 +1,85 @@
+. git pull origin main – Local Command in VS Code
+What it does:
+git pull origin main
+
+
+git pull → Fetches the latest changes from the remote repository and merges them into your current branch.
+
+origin → The name of the remote repository (default is origin).
+
+main → The branch you want to pull from.
+
+Step-by-Step Explanation:
+
+Git contacts GitHub (or remote repo).
+
+Downloads any new commits from main branch.
+
+Merges those commits into your current local branch.
+
+Resolves conflicts if any, or asks you to resolve them manually.
+
+Example Scenario:
+
+You are on your branch feature/login-enhancement.
+
+Someone else pushed changes to main on GitHub.
+
+Running:
+
+git pull origin main
+
+
+Updates your local branch with the latest changes from main, so you don’t accidentally overwrite them when you merge later.
+
+🔹 2. Pull Request (PR) on GitHub – Browser
+
+A Pull Request (PR) is a GitHub feature used for reviewing and merging code between branches.
+
+How it works:
+
+You push your branch to GitHub:
+
+git push -u origin feature/login-enhancement
+
+
+Go to GitHub → your repository → you’ll see a “Compare & Pull Request” button.
+
+Open the PR → GitHub shows:
+
+Changes in your branch vs main
+
+Any conflicts with main
+
+Option for reviewers to approve
+
+Once approved → click Merge Pull Request → merges your branch into main on GitHub.
+
+🔹 Difference Between git pull and Pull Request
+Local Command (git pull)	GitHub Pull Request
+Updates your local branch with changes from remote.	Proposes merging your branch into another branch (main) on GitHub.
+Run in terminal/VS Code.	Run in web browser.
+Can auto-merge or show conflicts locally.	Can review, discuss, and approve changes before merging.
+Typically used before pushing your branch to avoid conflicts.	Used to merge feature branches into main safely in a team environment.
+🔹 Real-Time Workflow Example
+
+You are working on feature/login locally.
+
+Someone updated main on GitHub.
+
+Step 1 (Local Sync):
+
+git checkout feature/login
+git pull origin main
+
+
+Brings your branch up-to-date with latest main changes.
+
+Step 2 (Push Your Feature):
+
+git push origin feature/login
+
+
+Step 3 (GitHub Pull Request):
+
+Open PR → Review → Merge → main now has your feature.
