@@ -1,38 +1,92 @@
-Add Git commands into the file
-Example content for git-commands.txt:
+# Git & GitHub Cheatsheet
 
-# Basic Git Commands
+## 1. Git Basics
+git init                     # Initialize a new Git repository
+git clone <repo_url>          # Clone an existing repository
+git status                    # Check the status of files
+git add <file>                # Stage a specific file
+git add .                     # Stage all changes
+git commit -m "message"       # Commit staged changes
+git log                       # Show commit history
+git diff                      # Show changes not staged
+
+## 2. Branching & Merging
+git branch                    # List branches
+git branch <branch_name>      # Create a new branch
+git checkout <branch_name>    # Switch branch
+git checkout -b <branch_name> # Create + switch branch
+git merge <branch_name>       # Merge branch into current branch
+git branch -d <branch_name>   # Delete branch (safe)
+git branch -D <branch_name>   # Force delete branch
+
+## 3. Undo & Reset
+git reset <file>              # Unstage a file
+git checkout -- <file>        # Discard changes in working directory
+git reset --hard HEAD~1       # Undo last commit (dangerous!)
+git revert <commit_id>        # Undo a commit safely
+
+## 4. Remote Repositories
+git remote -v                 # Show remote URLs
+git remote add origin <url>   # Add remote repository
+git push -u origin main       # Push local branch to remote
+git push                      # Push changes
+git pull                      # Fetch + merge changes from remote
+git fetch                     # Download changes without merging
+git remote set-url origin <url> # Change remote URL
+
+## 5. Workflow Examples
+
+### Solo Developer
 git init
-git clone <repo_url>
-git status
-git add <file>
-git commit -m "message"
-git push
-git pull
+git add .
+git commit -m "Initial commit"
+git remote add origin <url>
+git push -u origin main
 
-# Branching
-git branch
-git checkout -b <branch_name>
-git merge <branch_name>
-git branch -d <branch_name>
+### Feature Branch Workflow
+git checkout -b feature/login
+# make changes
+git add .
+git commit -m "Added login feature"
+git push -u origin feature/login
+# Open Pull Request on GitHub
+# Merge into main after review
 
-# Undo & Reset
-git log
-git diff
-git reset <file>
-git checkout -- <file>
-git revert <commit_id>
+### Hotfix Workflow
+git checkout main
+git pull origin main
+git checkout -b hotfix/critical-bug
+# fix bug
+git commit -am "Fixed critical bug"
+git push origin hotfix/critical-bug
+# Open Pull Request → Merge → Deploy
 
+### Fork & Pull Request (Large Team / Open Source)
+git clone <forked_repo_url>
+git remote add upstream <original_repo_url>
+git fetch upstream
+git checkout main
+git merge upstream/main
+git checkout -b feature/payment
+# work and push to fork
+# open PR from fork → original repo
 
-Stage and commit the file
+## 6. Stash (Temporary Save)
+git stash                     # Save uncommitted changes
+git stash list                # List all stashed changes
+git stash pop                 # Apply latest stash
+git stash drop                # Delete a stash
 
-git add git-commands.txt
-git commit -m "Added git commands text file"
+## 7. Tags (Releases)
+git tag v1.0                  # Create a tag
+git tag                        # List tags
+git push origin v1.0          # Push tag to remote
 
+## 8. Best Practices
+- Commit often with clear messages
+- Always pull before pushing
+- Use branches for new features
+- Use `.gitignore` for unnecessary files
+- Review code before merging
+- Keep main branch stable
 
-Push to GitHub
-
-git push origin main
-
-
-✅ Done! Now your git-commands.txt file will appear in your GitHub repository.
