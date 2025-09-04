@@ -1,5 +1,5 @@
 
-# Arun Vangla Guide: World Wide Coder
+# Arun Vangala Guide: World Wide Coder
 
 # Learn Git & GitHub
 
