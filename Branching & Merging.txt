@@ -125,3 +125,7 @@ main → stable code
       ├── feature/login → develop login → merge → main
       ├── feature/payment → develop payment → merge → main
       └── hotfix/header-bug → fix urgent bug → merge → main
+
+
+
+      
