@@ -1,0 +1,38 @@
+Add Git commands into the file
+Example content for git-commands.txt:
+
+# Basic Git Commands
+git init
+git clone <repo_url>
+git status
+git add <file>
+git commit -m "message"
+git push
+git pull
+
+# Branching
+git branch
+git checkout -b <branch_name>
+git merge <branch_name>
+git branch -d <branch_name>
+
+# Undo & Reset
+git log
+git diff
+git reset <file>
+git checkout -- <file>
+git revert <commit_id>
+
+
+Stage and commit the file
+
+git add git-commands.txt
+git commit -m "Added git commands text file"
+
+
+Push to GitHub
+
+git push origin main
+
+
+✅ Done! Now your git-commands.txt file will appear in your GitHub repository.
