@@ -1,0 +1,123 @@
+Git Local To Remote Guide
+Git Step-by-Step Documentation: Local to Remote
+1. Create a Local Project
+
+Open PowerShell or terminal.
+
+Create a new project folder:
+
+mkdir MyNewProject
+cd MyNewProject
+
+Create a README file:
+
+echo "# My New Project" > README.md
+
+Initialize Git:
+
+git init
+
+Check status:
+
+git status
+2. Configure Git User
+
+Set your Git identity:
+
+git config user.name "Arun Vangala"
+git config user.email "vangalaarun74@gmail.com"
+
+Verify:
+
+git config --list
+3. Stage and Commit Changes
+
+Stage all files:
+
+git add .
+
+Commit your changes:
+
+git commit -m "Initial commit with README"
+
+Check commit status:
+
+git status
+4. Create Remote Repository on GitHub
+
+Go to GitHub → New Repository
+
+Repository name: MyNewProject
+
+Do NOT check “Add README”
+
+Click Create repository
+
+5. Connect Local Repo to GitHub
+
+Copy the HTTPS URL of your GitHub repo:
+
+https://github.com/ArunVangala/MyNewProject.git
+
+Add remote:
+
+git remote add origin https://github.com/ArunVangala/MyNewProject.git
+
+Verify:
+
+git remote -v
+6. Push Local Project to GitHub
+
+Rename branch to main:
+
+git branch -M main
+
+Push to remote:
+
+git push -u origin main
+
+Verify on GitHub: All files should appear.
+
+7. Create and Work on Branches
+
+Create a new branch:
+
+git checkout -b feature-branch
+
+Make changes, then stage & commit:
+
+git add .
+git commit -m "Add new feature"
+
+Push branch to GitHub:
+
+git push origin feature-branch
+
+Merge branch into main:
+
+git checkout main
+git merge feature-branch
+
+Delete branch (optional):
+
+git branch -d feature-branch
+8. Daily Workflow
+
+Pull latest changes:
+
+git pull origin main
+
+Make changes, stage, commit, and push:
+
+git add .
+git commit -m "Your message"
+git push
+Tips
+
+Always work on a branch for features or bug fixes.
+
+Commit often with descriptive messages.
+
+Use git status to check repository state before committing.
+
+Use Personal Access Token (PAT) for HTTPS push authentication.
